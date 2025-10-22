@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lab_8/nasa.dart';
 
 void main() {
   runApp(const MainApp());
@@ -15,7 +16,7 @@ class _MainAppState extends State<MainApp> {
   int index = 0;
 
   final List<Widget> tabs = [
-    const Text('Dominicks'),
+    const nasa(),
     const Text('Danes'), // attach your page here
   ];
 

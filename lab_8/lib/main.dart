@@ -4,15 +4,37 @@ void main() {
   runApp(const MainApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class MainApp extends StatefulWidget {
+  const MainApp({super.key,});
+
+  @override
+  State<MainApp> createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> {
+  int index = 0;
+
+  final List<Widget> tabs = [
+    const Text('Dominicks'),
+    const Text('Danes'), // attach your page here
+  ];
+
+  void tabTapped(int i) {
+    index = i;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
+        body: tabs[index],                                               // bottom nav bar
+        bottomNavigationBar: BottomNavigationBar(
+         currentIndex: index,
+          onTap: tabTapped,
+          items: const [
+            BottomNavigationBarItem(label: 'Nasa', icon: Icon(Icons.star)),
+            BottomNavigationBarItem(label: 'Pokemon', icon: Icon(Icons.face)),
+          ],
         ),
       ),
     );

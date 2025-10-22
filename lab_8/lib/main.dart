@@ -20,7 +20,7 @@ class _MainAppState extends State<MainApp> {
   ];
 
   void tabTapped(int i) {
-    index = i;
+    setState(() => index = i,);
   }
 
   @override
@@ -29,7 +29,7 @@ class _MainAppState extends State<MainApp> {
       home: Scaffold(
         body: tabs[index],                                               // bottom nav bar
         bottomNavigationBar: BottomNavigationBar(
-         currentIndex: index,
+          currentIndex: index,
           onTap: tabTapped,
           items: const [
             BottomNavigationBarItem(label: 'Nasa', icon: Icon(Icons.star)),

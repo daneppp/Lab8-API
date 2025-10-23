@@ -3,8 +3,8 @@ import 'package:lab_8/Nasa/planet_container.dart';
 import 'package:lab_8/Nasa/planet_widget.dart';
 import 'package:provider/provider.dart';
 
-class JokeList extends StatelessWidget {
-  const JokeList({super.key});
+class PlanetList extends StatelessWidget {
+  const PlanetList({super.key});
 
   @override
   Widget build(BuildContext context) {

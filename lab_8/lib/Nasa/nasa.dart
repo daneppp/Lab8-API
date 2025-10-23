@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lab_8/Nasa/planet_list.dart';
 
 class nasa extends StatelessWidget {
   const nasa({super.key});
@@ -8,7 +9,7 @@ class nasa extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           const Text(
             'Rent a Planet!',
@@ -23,7 +24,8 @@ class nasa extends StatelessWidget {
           ElevatedButton(onPressed: () {}, child: const Text('Search')),
           Text("OR"),
           ElevatedButton(onPressed: () {}, child: const Text('Browse Cataloge')),
-          SizedBox(height: 150),
+          SizedBox(height: 10),
+          Expanded(child: PlanetList()),
         ],
       ),
     );

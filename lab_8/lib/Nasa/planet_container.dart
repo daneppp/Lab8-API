@@ -4,8 +4,8 @@ import 'package:lab_8/Nasa/planet.dart';
 class PlanetContainer extends ChangeNotifier {
   final List<Planet> planets = [];
 
-  void addJoke(Planet planet) {
+  void addPlanet(Planet planet) {
     planets.add(planet);
-    notifyListeners();
+    //notifyListeners();
   }
 }

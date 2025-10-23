@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lab_8/Nasa/planet_container.dart';
 import 'package:lab_8/Nasa/planet_widget.dart';
+import 'package:provider/provider.dart';
 
 class JokeList extends StatelessWidget {
   const JokeList({super.key});

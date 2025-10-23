@@ -1,3 +1,5 @@
+// the data model for a planet
+
 import 'package:flutter/material.dart';
 
 class Planet {

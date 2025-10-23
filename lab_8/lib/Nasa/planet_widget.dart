@@ -1,3 +1,5 @@
+// the widget for a single planet choice
+
 import 'package:flutter/material.dart';
 import 'package:lab_8/Nasa/planet.dart';
 
@@ -20,7 +22,7 @@ class PlanetWidget extends StatelessWidget {
                 children: [
                   Text(planet.name, style: TextStyle(fontSize: 25)),
                   Text(
-                    planet.temp.toString() + "°f",
+                    "${planet.temp}°f",
                     style: TextStyle(fontSize: 25),
                   ),
                 ],

@@ -1,3 +1,5 @@
+// the list of planets to display
+
 import 'package:flutter/material.dart';
 import 'package:lab_8/Nasa/planet_container.dart';
 import 'package:lab_8/Nasa/planet_widget.dart';

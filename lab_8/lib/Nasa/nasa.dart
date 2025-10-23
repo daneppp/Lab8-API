@@ -9,9 +9,9 @@ class nasa extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(5.0),
       child: Column(
-        //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           const Text(
             'Rent a Planet!',
@@ -20,12 +20,26 @@ class nasa extends StatelessWidget {
           Row(
             children: [
               const Expanded(child: InputBox(label: "Planet")),
-              const Expanded(child: InputBox(label: "Desire")),
+              const Expanded(child: InputBox(label: "Temp.")),
             ],
           ),
-          ElevatedButton(onPressed: () {}, child: const Text('Search')),
-          Text("OR"),
-          ElevatedButton(onPressed: () {}, child: const Text('Browse Cataloge')),
+          Row(
+            children: [
+              Expanded(
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Search'),
+                ),
+              ),
+              Expanded(child: Text("OR")),
+              Expanded(
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Browse Cataloge'),
+                ),
+              ),
+            ],
+          ),
           SizedBox(height: 10),
           Expanded(child: PlanetList()),
         ],

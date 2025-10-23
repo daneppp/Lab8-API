@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:lab_8/Nasa/nasa.dart';
+import 'package:lab_8/Nasa/planet_container.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => PlanetContainer(), // provide planetContainer to the app
+      child: MaterialApp(home: const MainApp()),
+    ),
+  );
 }
 
 class MainApp extends StatefulWidget {

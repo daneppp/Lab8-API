@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lab_8/nasa.dart';
+import 'package:lab_8/Nasa/nasa.dart';
 
 void main() {
   runApp(const MainApp());
@@ -28,7 +28,8 @@ class _MainAppState extends State<MainApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: tabs[index],                                               // bottom nav bar
+        appBar: AppBar(title: const Text('Lab 8 API'), backgroundColor: Colors.amber,),
+        body: tabs[index],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: index,
           onTap: tabTapped,

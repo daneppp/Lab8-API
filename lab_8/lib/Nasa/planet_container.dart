@@ -8,6 +8,6 @@ class PlanetContainer extends ChangeNotifier {
 
   void addPlanet(Planet planet) {
     planets.add(planet);
-    //notifyListeners();
+    notifyListeners();
   }
 }

@@ -1,7 +1,10 @@
 // the rent a planet ui page
 
 import 'package:flutter/material.dart';
+import 'package:lab_8/Nasa/planet_container.dart';
 import 'package:lab_8/Nasa/planet_list.dart';
+import 'package:lab_8/Nasa/query_nasa.dart';
+import 'package:provider/provider.dart';
 
 class nasa extends StatelessWidget {
   const nasa({super.key});
@@ -14,28 +17,28 @@ class nasa extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           const Text(
-            'Rent a Planet!',
+            'Galactic Properties',
             style: TextStyle(fontSize: 42, fontWeight: FontWeight.bold),
           ),
           Row(
             children: [
-              const Expanded(child: InputBox(label: "Planet")),
-              const Expanded(child: InputBox(label: "Temp.")),
+              const Expanded(child: InputBox(label: "Planet Name")),
+              const Expanded(child: InputBox(label: "Distance")),
             ],
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Expanded(
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: const Text('Search'),
-                ),
-              ),
-              Expanded(child: Text("OR")),
-              Expanded(
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: const Text('Browse Cataloge'),
+              ElevatedButton(onPressed: () {}, child: const Text('Search')),
+              ElevatedButton(
+                onPressed: () async {
+                  for(final planet in await QueryNasa.fetchPlanets()) {
+                    context.read<PlanetContainer>().addPlanet(planet);
+                  }
+                },
+                child: const Text(
+                  'Browse \nCataloge',
+                  textAlign: TextAlign.center,
                 ),
               ),
             ],

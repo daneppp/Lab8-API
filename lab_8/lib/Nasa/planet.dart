@@ -1,12 +1,12 @@
 // the data model for a planet
 
-import 'package:flutter/material.dart';
-
 class Planet {
-  final String name;
-  //final? Image image;
-  final String description;
-  final int temp;
+  final String? name;
+  final double? orbitPeriod;
+  final double? distanceFromEarth;
+  final double? mass;
+  final double? radius;
+  final String? host;
 
-  Planet({required this.name, required this.description, required this.temp});
+  Planet({required this.orbitPeriod, required this.distanceFromEarth, required this.mass, required this.radius, required this.host, required this.name});
 }

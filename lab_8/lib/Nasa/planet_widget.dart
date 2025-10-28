@@ -15,57 +15,60 @@ class PlanetWidget extends StatelessWidget {
         elevation: 4,
         child: Padding(
           padding: EdgeInsetsGeometry.all(5),
-          child: Row(
+          child: Column(
             children: [
-              Container(color: Colors.amber, child: SizedBox(height: 250, width:  200,)),
-              Expanded(
-              child: Column(
-                children: [
-                  Text(
-                        planet.name,
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        ),
+              Text(
+                planet.name ?? 'Unkown',
+                style: TextStyle(fontSize: 34, fontWeight: FontWeight.bold),
+              ),
+              PlanetQuality(label: "Radius:", value: planet.radius?.toString() ?? "Unknown"),
+              PlanetQuality(
+                label: "Orbital Period:",
+                value: planet.orbitPeriod?.toString() ?? "Unkown",
+              ),
+              PlanetQuality(
+                label: "Distance From Earth:",
+                value: planet.distanceFromEarth?.toString() ?? "Unkown",
+              ),
+              PlanetQuality(label: "Mass:", value: planet.mass?.toString() ?? "Unknown"),
+              PlanetQuality(label: "Radius:", value: planet.radius?.toString() ?? "Unknown"),
+              SizedBox(height: 15),
+              ElevatedButton(
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: const Text('Added to cart!'),
+                      action: SnackBarAction(
+                        label: 'Close',
+                        onPressed: () {},
                       ),
-                  Text(
-                    "${planet.temp}°f",
-                    style: TextStyle(
-                      fontSize: 23,
-                      color: const Color.fromARGB(255, 99, 99, 99),
-                    ),
-                  ),
-                  SizedBox(height: 15),
-                  Container(
-                    child: Padding(
-                      padding: EdgeInsetsGeometry.all(5),
-                      child: Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Text(
-                          planet.description,
-                          style: TextStyle(
-                            color: const Color.fromARGB(255, 30, 30, 30),
-                            fontSize: 17,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 15),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 66, 66, 66),
-                      foregroundColor: Colors.white,
-                    ),
-                    child: Text("Checkout!"),
-                  ),
-                ],
-              )),
+                    ));
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 66, 66, 66),
+                  foregroundColor: Colors.white,
+                ),
+                child: Text("+Cart"),
+              ),
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class PlanetQuality extends StatelessWidget {
+  final String label;
+  final String value;
+
+  const PlanetQuality({super.key, required this.label, required this.value});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [Text(label, style: TextStyle(fontSize: 20),), Text(value, style: TextStyle(fontSize: 20))],
     );
   }
 }

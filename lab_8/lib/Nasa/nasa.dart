@@ -6,8 +6,16 @@ import 'package:lab_8/Nasa/planet_list.dart';
 import 'package:lab_8/Nasa/query_nasa.dart';
 import 'package:provider/provider.dart';
 
-class nasa extends StatelessWidget {
-  const nasa({super.key});
+class Nasa extends StatefulWidget {
+  const Nasa({super.key});
+
+  @override
+  State<Nasa> createState() => _NasaState();
+}
+
+class _NasaState extends State<Nasa> {
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController distanceController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -22,17 +30,35 @@ class nasa extends StatelessWidget {
           ),
           Row(
             children: [
-              const Expanded(child: InputBox(label: "Planet Name")),
-              const Expanded(child: InputBox(label: "Distance")),
+              Expanded(
+                child: InputBox(
+                  label: "Planet Name",
+                  controller: nameController,
+                ),
+              ),
+              Expanded(
+                child: InputBox(
+                  label: "Distance",
+                  controller: distanceController,
+                ),
+              ),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              ElevatedButton(onPressed: () {}, child: const Text('Search')),
+              ElevatedButton(onPressed: () async{
+                context.read<PlanetContainer>().clearPlanets();
+                for (final planet in await QueryNasa.fetchPlanets(nameController.text.trim(), distanceController.text.trim())) {
+                    context.read<PlanetContainer>().addPlanet(planet);
+                  }
+                  nameController.clear();
+                  distanceController.clear();
+              }, child: const Text('Search')),
               ElevatedButton(
                 onPressed: () async {
-                  for(final planet in await QueryNasa.fetchPlanets()) {
+                  context.read<PlanetContainer>().clearPlanets();
+                  for (final planet in await QueryNasa.fetchPlanets(null, null)) {
                     context.read<PlanetContainer>().addPlanet(planet);
                   }
                 },
@@ -53,13 +79,16 @@ class nasa extends StatelessWidget {
 
 class InputBox extends StatelessWidget {
   final String label;
-  const InputBox({super.key, required this.label});
+  final TextEditingController controller;
+
+  const InputBox({super.key, required this.label, required this.controller});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextField(
+        controller: controller,
         decoration: InputDecoration(
           label: Text(label),
           border: OutlineInputBorder(),

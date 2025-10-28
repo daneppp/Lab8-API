@@ -20,7 +20,7 @@ class _MainAppState extends State<MainApp> {
   final List<Widget> tabs = [
     ChangeNotifierProvider(
       create: (context) => PlanetContainer(),
-      child: nasa()),
+      child: Nasa()),
     const Text('Danes'), // attach your page here
   ];
 

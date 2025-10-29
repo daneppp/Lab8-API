@@ -1,3 +1,12 @@
+/**
+ * Name: Dominick Hagedorn
+ * Date: 10/29/25
+ * Description: Lab 8.
+ * 
+ * Bugs: Planets can show up multiple times if they appear multiple times in the api table
+ * Reflection: 
+ */
+
 import 'package:flutter/material.dart';
 import 'package:lab_8/Nasa/nasa.dart';
 import 'package:lab_8/Nasa/planet_container.dart';

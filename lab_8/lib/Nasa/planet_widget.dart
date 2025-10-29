@@ -58,6 +58,7 @@ class PlanetWidget extends StatelessWidget {
   }
 }
 
+// a widget to display each planet property with a label
 class PlanetQuality extends StatelessWidget {
   final String label;
   final String value;

@@ -39,5 +39,3 @@ class QueryNasa {
     }
   }
 }
-
-//https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+pl_name,hostname,pl_orbper,pl_rade,pl_masse,sy_dist+from+ps+top+5&format=json

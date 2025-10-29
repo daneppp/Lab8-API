@@ -44,7 +44,7 @@ class _NasaState extends State<Nasa> {
               ),
             ],
           ),
-          Row(
+          Row( // buttons for retrieving planets
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               ElevatedButton(onPressed: () async{
@@ -57,9 +57,9 @@ class _NasaState extends State<Nasa> {
               }, child: const Text('Search')),
               ElevatedButton(
                 onPressed: () async {
-                  context.read<PlanetContainer>().clearPlanets();
-                  for (final planet in await QueryNasa.fetchPlanets(null, null)) {
-                    context.read<PlanetContainer>().addPlanet(planet);
+                  context.read<PlanetContainer>().clearPlanets(); // clear the planet list
+                  for (final planet in await QueryNasa.fetchPlanets(null, null)) { // get list of planets from api
+                    context.read<PlanetContainer>().addPlanet(planet); // add each planet to the container
                   }
                 },
                 child: const Text(
@@ -77,6 +77,7 @@ class _NasaState extends State<Nasa> {
   }
 }
 
+//a formated text field for getting user input
 class InputBox extends StatelessWidget {
   final String label;
   final TextEditingController controller;

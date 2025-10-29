@@ -163,17 +163,17 @@ class PokemonState extends State<Pokemon> {
                 child: Text(
                   name.toString().toUpperCase(),
                   style: const TextStyle(
-                    fontSize: 26,
+                    fontSize: 28,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 14),
               Center(
                 //Display the type
                 child: Text(
-                  'Type: $types',
-                  style: const TextStyle(fontSize: 18),
+                  'Type: $types'.toUpperCase(),
+                  style: const TextStyle(fontSize: 28),
                 ),
               ),
             ],

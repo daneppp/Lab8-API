@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lab_8/Nasa/nasa.dart';
 import 'package:lab_8/Nasa/planet_container.dart';
+import 'package:lab_8/pokemon.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -20,8 +21,9 @@ class _MainAppState extends State<MainApp> {
   final List<Widget> tabs = [
     ChangeNotifierProvider(
       create: (context) => PlanetContainer(),
-      child: Nasa()),
-    const Text('Danes'), // attach your page here
+      child: Nasa(),
+      ), 
+      Pokemon(), 
   ];
 
   void tabTapped(int i) {
